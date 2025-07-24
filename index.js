@@ -10,8 +10,8 @@ if ((username === "admin" || username === "user") && password === "1234") {
   securityLevel = (username === "admin") ? "high" : "low";
   alert(`✅ Welcome ${role.toUpperCase()}!\nYour security level is: ${securityLevel}`);} 
   else {
-  alert("Incorrect username or password. Access denied!");
-  throw new Error("Access denied");
+  alert("Incorrect Username or Password. NO Access!");
+  throw new Error("NO ACCESS");
 }
 
 // --- Coffee Shop Calculator ---
@@ -19,7 +19,7 @@ if ((username === "admin" || username === "user") && password === "1234") {
 let customerName = prompt("What is your name?");
 let age = parseInt(prompt("How old are you?"));
 let coffeeType = prompt("What type of coffee would you like? (espresso / latte / cappuccino)").toLowerCase();
-let quantity = parseInt(prompt("How many cups would you like?"));
+let quantity = parseInt(prompt("How many cups would you like?(1/4/6...)"));
 
 let pricePerCup;
 
@@ -52,11 +52,19 @@ let totalWithTip = finalTotal + tipAmount;
 let amountPerPerson = totalWithTip / splitCount;
 
 // --- Result ---
-alert(`Hello ${customerName}!
-You ordered ${quantity} ${coffeeType}(s).
-Original total: $${originalTotal.toFixed(2)}
-Discount: $${discount.toFixed(2)}
-Tip: $${tipAmount.toFixed(2)}
-Total with Tip: $${totalWithTip.toFixed(2)}
-Split between ${splitCount} person(s): $${amountPerPerson.toFixed(2)} each
-`);
+const resultMessage = `
+  <h4> Hello ${customerName}!</h4>
+  <p>You ordered <strong>${quantity}</strong> <em>${coffeeType}(s)</em>.</p>
+  <ul>
+    <li> Original total: $${originalTotal.toFixed(2)}</li>
+    <li> Discount: $${discount.toFixed(2)}</li>
+    <li> Tip: $${tipAmount.toFixed(2)}</li>
+    <li> Total with Tip: $${totalWithTip.toFixed(2)}</li>
+    <li> Split between ${splitCount} person(s): $${amountPerPerson.toFixed(2)} each</li>
+  </ul>
+`;
+
+const outputBox = document.getElementById("result-output");
+outputBox.innerHTML = resultMessage;
+outputBox.style.display = "block";
+
