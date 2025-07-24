@@ -3,127 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Coffee Assistant</title>
+  <title>Smart Coffee Order</title>
 
-  <!-- Bootstrap / Fonts -->
+  <!-- Bootstrap and Google Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
-  <link href="favicon 1" rel=icons">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon1.png">
+  
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #d0f0fd, #b3e5fc);
-      min-height: 100vh;
+      background: radial-gradient(circle at top left, #d0f0fd, #c2e9fb, #a1dfff);
+      font-family: 'Outfit', sans-serif;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 40px;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
 
-    .glass-box {
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 20px;
-      padding: 50px 35px;
-      box-shadow: 0 25px 60px rgba(0, 100, 200, 0.15);
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
+    .card-glass {
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
-      animation: fadeIn 1.1s ease;
-      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 150, 255, 0.2);
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      animation: fadeIn 1s ease;
     }
 
-    .glass-box h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2.5rem;
-      color: #0d47a1;
-      margin-bottom: 15px;
+    .card-glass h2 {
+      color: #0077c2;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-align: center;
     }
 
-    .glass-box p {
-      color: #333;
+    .result-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .result-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e0f7fa;
       font-size: 1.05rem;
-      margin-bottom: 8px;
+      color: #01579b;
     }
 
-    ul.list-unstyled li {
-      font-size: 1rem;
-      margin: 6px 0;
-      color: #0b3c75;
+    .result-list li span {
+      font-weight: 600;
+      color: #0277bd;
     }
 
-    .spinner-grow {
-      margin-top: 25px;
-      width: 2.5rem;
-      height: 2.5rem;
-      animation: pulse 1s infinite ease-in-out;
+    .footer-note {
+      margin-top: 30px;
+      text-align: center;
+      color: #90a4ae;
+      font-size: 0.9rem;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .card-glass {
+        padding: 25px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.7; }
-      50% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.7; }
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #558bbd;
-    }
-
-    footer span {
-      color: #0ea5e9;
-    }
-
-    .brand-tag {
-      position: absolute;
-      top: -15px;
-      right: 20px;
-      background: #0ea5e9;
-      color: white;
-      padding: 5px 12px;
-      font-size: 0.75rem;
-      border-radius: 30px;
-      box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
     }
   </style>
 </head>
 <body>
+  
+    <!-- JavaScript result -->
+  <div id="result-output" class="card-glass" style="display: none;"></div>
 
-  <div class="glass-box">
-    <div class="brand-tag">JS Project</div>
-
-    <h1>Smart Coffee Assistant</h1>
-    <p>Welcome to our <strong>virtu al coffee shop</strong> experience!</p>
-    <p>This assistant will help you:</p>
-    
-    <ul class="list-unstyled">
-      <li> Secure login with role check</li>
-      <li> Place your coffee order easily</li>
-      <li> Split the bill smartly with tip</li>
-    </ul>
-
-    <p class="fw-bold text-muted mt-3">Please follow the pop-up prompts to begin.</p>
-
-    <div class="spinner-grow text-info" role="status"></div>
-
-    <footer class="mt-4">
-      <p>Made with <span>❤️</span> by <strong>Satayesh</strong></p>
-    </footer>
-  </div>
-
-  <!--JavaScript file -->
-  <script src="index.js"></script> 
+  <script src="index.js"></script>
 </body>
 </html>
